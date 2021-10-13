@@ -4,7 +4,7 @@
   "description": "An app to help users find out if an item is recycalable in their city",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode development --watch",
     "start": "node server/index.js"
   },
   "repository": {
