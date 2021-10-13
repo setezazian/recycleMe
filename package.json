@@ -1,0 +1,35 @@
+{
+  "name": "recycleme",
+  "version": "1.0.0",
+  "description": "An app to help users find out if an item is recycalable in their city",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/setezazian/recycleMe.git"
+  },
+  "author": "Shirin Etezazian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/setezazian/recycleMe/issues"
+  },
+  "homepage": "https://github.com/setezazian/recycleMe#readme",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0"
+  }
+}
