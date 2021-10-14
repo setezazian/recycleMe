@@ -34,3 +34,7 @@ body {
   width: 400px;
   margin-left: 150px;
 }
+
+#item span.notrecyclable {
+  color: red;
+}
