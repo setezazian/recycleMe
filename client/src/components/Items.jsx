@@ -22,7 +22,7 @@ const Items = (props) => {
   }
 
   return (
-    <div id="items" className={props.currentCity==='' ? 'hidden' : undefined}>
+    <div id="items" className={props.currentCity === '' ? 'hidden' : undefined}>
       <input
       type="text"
       name="item"
@@ -30,10 +30,12 @@ const Items = (props) => {
       value={item}
       onChange={(e) => setItem(e.target.value)} />
       <button onClick={() => retrieveItem()}>Search</button>
-      <div>
-        {data.name}
-        <img src={data.image_url} />
-        {data.is_recyclable}
+      <div id="item" className={Object.keys(data).length === 0 ? 'hidden' : undefined}>
+        {data.is_recyclable === 1
+        ? `${data.name}s are recycalble in ${props.currentCity}. Select a photo to see details.`
+        : `${data.name}s are not recycalble in ${props.currentCity}. Select a photo to see details.`}
+        <img src={data.image2_url} />
+        <img src={data.image1_url} />
       </div>
     </div>
   );

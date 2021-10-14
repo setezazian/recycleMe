@@ -12,7 +12,7 @@ connection.connect(error => {
 });
 
 const getItem = function(cityName, itemName, callback) {
-  var sqlString = 'SELECT i.name, i.image_url, is_recyclable FROM cities c JOIN items i '
+  var sqlString = 'SELECT i.name, i.image1_url, i.image2_url, is_recyclable FROM cities c JOIN items i '
   + 'JOIN recyclable r ON r.city_id = c.id AND r.item_id = i.id '
   + 'WHERE c.name = ? AND i.name = ?';
   var params = [cityName, itemName];
