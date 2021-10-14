@@ -13,7 +13,7 @@ const City = (props) => {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button onClick={() => props.setCurrentCity(city)}>Go</button>
+        <button onClick={() => props.setCurrentCity(city)}> Go </button>
       </div>
     </div>
   );
