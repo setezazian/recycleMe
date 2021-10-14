@@ -11,17 +11,14 @@ connection.connect(error => {
   }
 });
 
-// const getAllTransactions = function(callback) {
-//   var sqlString = 'SELECT transactions.id, transactions.date, transactions.description, transactions.amount, categories.name FROM transactions LEFT JOIN categories ON transactions.category_id = categories.id';
-//   connection.query(sqlString, callback);
-// };
-
-// const getAllCategories = function(callback) {
-//   var sqlString = 'SELECT * FROM categories';
-//   connection.query(sqlString, callback);
-// };
+const getItem = function(cityName, itemName, callback) {
+  var sqlString = 'SELECT i.name, i.image_url, is_recyclable FROM cities c JOIN items i '
+  + 'JOIN recyclable r ON r.city_id = c.id AND r.item_id = i.id '
+  + 'WHERE c.name = ? AND i.name = ?';
+  var params = [cityName, itemName];
+  connection.query(sqlString, params, callback);
+};
 
 module.exports = {
-  // getAllTransactions,
-  // getAllCategories
+  getItem
 };
