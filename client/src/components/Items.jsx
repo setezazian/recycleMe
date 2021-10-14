@@ -5,6 +5,8 @@ const Items = (props) => {
   const [item, setItem] = useState('');
   const [data, setData] = useState({});
 
+  // TODO: add useEffect to update data on each call
+
   const retrieveItem = () => {
     axios.get('/items', {
       params: {
