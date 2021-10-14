@@ -1,38 +1,22 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
-class City extends React.Component {
-  constructor(props) {
-    super(props);
+const City = (props) => {
+  const [city, setCity] = useState('');
 
-    this.state = {
-      city: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
-  }
-
-
-  render() {
-    return (
-      <div className="city">
-        <form className="city-input" action="items">
-          <input
-            name="city"
-            type="text"
-            placeholder="City Name"
-            value={this.state.city}
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Search" />
-        </form>
+  return (
+    <div className="city">
+      <div className="city-input">
+        <input
+          name="city"
+          type="text"
+          placeholder="City Name"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+        <button onClick={() => props.setCurrentCity(city)}>Search</button>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default City;
