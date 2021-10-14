@@ -2,11 +2,11 @@
  *    mysql -u root < schema.sql
 */
 
-DROP DATABASE IF EXISTS EcoGuide;
+DROP DATABASE IF EXISTS recycle;
 
-CREATE DATABASE EcoGuide;
+CREATE DATABASE recycle;
 
-USE EcoGuide;
+USE recycle;
 
 CREATE TABLE cities (
   id int NOT NULL AUTO_INCREMENT,
@@ -16,23 +16,26 @@ CREATE TABLE cities (
 
 CREATE TABLE items (
   id int NOT NULL AUTO_INCREMENT,
-  item_name varchar(255) NOT NULL UNIQUE,
-  image_name varchar(255) NOT NULL UNIQUE,
+  name varchar(255) NOT NULL,
+  image_url varchar(255) NOT NULL,
   PRIMARY KEY (ID)
 );
 
-CREATE TABLE recycalable (
+CREATE TABLE recyclable (
   id int NOT NULL AUTO_INCREMENT,
   city_id int,
   item_id int,
-  isRecycalable boolean,
+  is_recyclable boolean,
   PRIMARY KEY (ID)
 );
 
-ALTER TABLE recycalable ADD FOREIGN KEY (city_id) REFERENCES cities (id);
-ALTER TABLE recycalable ADD FOREIGN KEY (item_id) REFERENCES items (id);
+ALTER TABLE recyclable ADD FOREIGN KEY (city_id) REFERENCES cities (id);
+ALTER TABLE recyclable ADD FOREIGN KEY (item_id) REFERENCES items (id);
 
-INSERT INTO cities (id, name,) VALUES (1, "Boulder");
+INSERT INTO cities (id, name) VALUES (1, "Boulder");
 INSERT INTO cities (id, name) VALUES (2, "Austin");
-INSERT INTO items (id, item_name) VALUES (1, "aluminum can");
-INSERT INTO items (id, item_name) VALUES (2, "glass bottle");
+INSERT INTO items (id, name, image_url) VALUES (1, "aluminum can", "https://www.pngkey.com/png/detail/388-3884517_shindig-glass-jar-glass.png");
+INSERT INTO items (id, name, image_url) VALUES (2, "glass bottle", "https://static.turbosquid.com/Preview/001309/068/JC/_600.jpg");
+INSERT INTO recyclable (id, city_id, item_id, is_recyclable) VALUES (1, 1, 1, true);
+INSERT INTO recyclable (id, city_id, item_id, is_recyclable) VALUES (2, 1, 2, true);
+INSERT INTO recyclable (id, city_id, item_id, is_recyclable) VALUES (3, 2, 2, false);
