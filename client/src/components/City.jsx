@@ -6,45 +6,30 @@ class City extends React.Component {
     super(props);
 
     this.state = {
-      name: ''
+      city: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({[event.target.name]: event.target.value});
   }
 
-  handleSubmit(event) {
-    axios.post('/api/categories', {
-      name: this.state.name,
-      amount: this.state.amount
-    })
-      .then(response => {
-        console.log(response);
-        this.props.fetchCategories();
-      })
-      .catch(error => {
-        console.log('error', error);
-      });
-  }
-
 
   render() {
     return (
-      <div className="category-form">
-        <div className="category-input">
+      <div className="city">
+        <form className="city-input" action="items">
           <input
-            name="name"
+            name="city"
             type="text"
-            placeholder="Budget Category"
-            value={this.state.name}
+            placeholder="City Name"
+            value={this.state.city}
             onChange={this.handleChange}
           />
-        </div>
-        <button onClick={this.handleSubmit}>+</button>
+          <input type="submit" value="Search" />
+        </form>
       </div>
     );
   }
