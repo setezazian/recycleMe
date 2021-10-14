@@ -22,10 +22,11 @@ const Items = (props) => {
   }
 
   return (
-    <div id="items">
+    <div id="items" className={props.currentCity==='' ? 'hidden' : undefined}>
       <input
       type="text"
       name="item"
+      placeholder="Search Item"
       value={item}
       onChange={(e) => setItem(e.target.value)} />
       <button onClick={() => retrieveItem()}>Search</button>
